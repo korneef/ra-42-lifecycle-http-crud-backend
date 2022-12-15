@@ -19,8 +19,10 @@ router.get('/notes', async (ctx, next) => {
 });
 
 router.post('/notes', async(ctx, next) => {
-    notes.push({...ctx.request.body, id: nextId++});
+    console.log(ctx.request.body)
+    notes.push({content: ctx.request.body, id: nextId++});
     ctx.response.status = 204;
+    console.log(notes)
 });
 
 router.delete('/notes/:id', async(ctx, next) => {
